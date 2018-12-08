@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t havth/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run havth/docker-react npm run test -- --coverage
+  
